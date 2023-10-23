@@ -1,7 +1,7 @@
 # Paribu-Project
 Smart Contract
 
-Hello, in this agreement people can rent their houses or shops among themselves.
+Hello, in this contract people can rent their houses or shops among themselves.
 
 There are 4 mappings for keep contracts in struct (leaser and owner), property(struct) and balances(uint).
 
