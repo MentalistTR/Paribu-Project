@@ -1,7 +1,9 @@
 # Paribu-Project
-Smart Contract
+
 
 Hello, in this contract people can rent their houses or shops among themselves.
+
+I had to delete node modules due to size. 
 
 There are 4 mappings for keep contracts in struct (leaser and owner), property(struct) and balances(uint).
 
