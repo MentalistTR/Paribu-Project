@@ -57,6 +57,14 @@ git clone https://github.com/MentalistTR/Paribu-Project
 
 ## Testing 
 
+![Ekran Görüntüsü (33)](https://github.com/MentalistTR/Paribu-Project/assets/100069341/4ab1e74d-80f6-4151-9383-5f1248245ade)
+
+
+## License
+
+This project is licensed under the MIT License.
+
+
 
 
 
