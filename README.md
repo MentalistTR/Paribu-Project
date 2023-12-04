@@ -13,8 +13,9 @@ This project is a final case project for Rise In Solidity & BNB Paribu Hub Bootc
 - [License](#başlık-2)
 
 ## Overview
-Bu smart contractta kullanıcılar ev veya dükkan olmak üzere 2 tip assetlerini sisteme kayıt edebiliyorlar ve kendileri ve owner of this contract harici 
-addressler gelip maximum 1 yil kiralayabiliyorlar. You can analyze contract on SepoliaTestnet:
+
+In this smart contract, users can register two types of assets, house or shop, into the system, and they can register assets other than themselves and the owner of this contract.
+addresses can come and rent for a maximum of 1 year.  You can analyze contract on SepoliaTestnet:
 
 https://sepolia.etherscan.io/address/0xA30c2902e6fBD887f5F0F7B9130b17ed14Ff4994#code
 
