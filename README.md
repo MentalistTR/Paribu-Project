@@ -51,7 +51,7 @@ git clone https://github.com/MentalistTR/Paribu-Project
 
 2- Navigate to the project directory: 
 - Open folder in Your Code Editor
-- cd rise-in-solidity-bnb-chain-development-bootcamp-final-project
+- cd Paribu-Project
 
 3- Install hardhat: 
 -  npx hardhat
