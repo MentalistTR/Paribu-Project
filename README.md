@@ -47,7 +47,7 @@ Follow these steps to set up the project locally and start participating in web3
 
 1- Clone the repository:
 
-git clone https://github.com/MentalistTR/Paribu-Project
+git clone [https://github.com/MentalistTR/Paribu-Project](https://github.com/MentalistTR/Projects/tree/main/Rise%20In%20%26%20Sui%20Foundation%20Bootcamp%20Final%20Project/sui/final)
 
 2- Navigate to the project directory: 
 - Open folder in Your Code Editor
