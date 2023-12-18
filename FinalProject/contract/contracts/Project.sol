@@ -71,14 +71,13 @@ pragma solidity ^0.8.19;
     event removeHouseShopEvent(address indexed _owner,uint16 _houseShopNumber);
    
    function setHouseShop (
-      address _owner,
       string memory _AssetName,
       string memory types1,
       uint256 _amount) 
-      external  Owner checkBlackList checkSender(_owner) {
+      external  Owner checkBlackList {
 
       Property memory property;
-      property.owner = _owner;
+      property.owner =msg.sender;
       property.AssetName = _AssetName;
       property.MonthPrice = _amount;
       property.active;
@@ -92,7 +91,7 @@ pragma solidity ^0.8.19;
       }
   
       PropertyMap[msg.sender].push(property);
-      emit setHouseShop1( _owner,_AssetName,types1,_amount);
+      emit setHouseShop1( msg.sender,_AssetName,types1,_amount);
    }
 
     receive() external payable {
@@ -111,27 +110,25 @@ pragma solidity ^0.8.19;
     }
 
     function getRent (
-       address payable _leaser,
        address  payable _owner,
        uint16 _HouseShopNumber,
        string memory _PropertyName,
        uint256 _RentEnd,
        uint256 _leaserAmount) 
-       external payable Owner checkBlackList checkSender(_leaser) {
+       external payable Owner checkBlackList {
 
          require(!locked, "Re-entrancy!");
-         require(_owner != _leaser,"you cant rent yourself");
+         require(_owner !=msg.sender,"you cant rent yourself");
          require(checkRent(_owner,_HouseShopNumber) != true,"already rented");
          Property storage property = PropertyMap[ _owner][_HouseShopNumber];
          require(checkRentAmount(_owner,_HouseShopNumber) == _leaserAmount,"Invalid Price" );  
-       //  require(keccak256(abi.encodePacked(property.AssetName)) == keccak256(abi.encodePacked(_PropertyName)),"Invalid House Name");
          require(balances[msg.sender]>= _leaserAmount * (_RentEnd / 30),"insufficient funds");
          require(_RentEnd >=30 && _RentEnd % 30 == 0," multiple 30");
     
           uint256 monthNumber = _RentEnd / 30;
           require(monthNumber<=12," max 12 months.");         
           Contract memory _contracts;
-          _contracts.leaser = _leaser;
+          _contracts.leaser = msg.sender;
           _contracts.owner = _owner;
           _contracts.ProportName =_PropertyName;
           _contracts.RentStart = block.timestamp;
@@ -148,7 +145,7 @@ pragma solidity ^0.8.19;
  
           property.active = true;
  
-          emit getRent1(_leaser,_owner,_HouseShopNumber, _PropertyName, _RentEnd,_leaserAmount);
+          emit getRent1(msg.sender,_owner,_HouseShopNumber, _PropertyName, _RentEnd,_leaserAmount);
     } 
 
     function endRent(
@@ -212,7 +209,7 @@ pragma solidity ^0.8.19;
 
             if(msg.sender == _leaser) complains[_leaser].push(_complain);
             else complains[_owner].push(_complain);
-              
+            
     }
 
     function decisionOwner(address _complainant,uint16 _compNumber,string memory _decision,bool _rightful) public {
